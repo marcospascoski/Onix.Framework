@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="Onix.Framework.Domain/Onix.Framework.Domain.csproj" Id="749635da-bf20-4b22-8744-e5417b6d63f2" />
   <Project Path="Onix.Framework/Onix.Framework.csproj" Id="ddaffb02-b721-4191-a6a7-39386a63ec13" />
 </Solution>
