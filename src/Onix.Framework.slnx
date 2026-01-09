@@ -4,5 +4,8 @@
   <Project Path="Onix.Framework.Infra.Data/Onix.Framework.Infra.Data.csproj" Id="280619d9-989d-4a51-a7e0-843e97aabbc9" />
   <Project Path="Onix.Framework.Notifications/Onix.Framework.Notifications.csproj" Id="920fe0ec-ab7d-41af-82c8-bb07deb5de70" />
   <Project Path="Onix.Framework.Security/Onix.Framework.Security.csproj" Id="fde0c34a-6dd4-4b24-9f97-00fc0a2c2198" />
+  <Project Path="Onix.Framework.Shared/Onix.Framework.Shared.csproj" Id="5e5da8a2-682c-4767-87f9-eca8f3431c3e" />
+  <Project Path="Onix.Framework.Tests/Onix.Framework.Tests.csproj" Id="20dcc196-89f0-4ee8-81cf-cfe0f2483d58" />
+  <Project Path="Onix.Framework.WebApi/Onix.Framework.WebApi.csproj" Id="badfa685-2f9f-43cc-bbc4-aef7afd4f2b9" />
   <Project Path="Onix.Framework/Onix.Framework.csproj" Id="ddaffb02-b721-4191-a6a7-39386a63ec13" />
 </Solution>

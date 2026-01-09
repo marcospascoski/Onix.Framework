@@ -75,10 +75,8 @@ namespace Onix.Framework.Security
         public static string GenerateRandomSecret(int keySizeInBytes)
         {
             byte[] secretBytes = new byte[keySizeInBytes];
-            using (var rng = RandomNumberGenerator.Create())
-            {
-                rng.GetBytes(secretBytes);
-            }
+            using var rng = RandomNumberGenerator.Create();
+            rng.GetBytes(secretBytes);
 
             return Convert.ToBase64String(secretBytes);
         }
@@ -92,10 +90,8 @@ namespace Onix.Framework.Security
             }
 
             byte[] secretBytes = new byte[tamanhoBytes];
-            using (var rng = RandomNumberGenerator.Create())
-            {
-                rng.GetBytes(secretBytes);
-            }
+            using var rng = RandomNumberGenerator.Create();
+            rng.GetBytes(secretBytes);
 
             return Convert.ToBase64String(secretBytes);
         }
@@ -121,11 +117,9 @@ namespace Onix.Framework.Security
             ms.Write(aes.IV, 0, aes.IV.Length);
 
             using (var cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+            using (var sw = new System.IO.StreamWriter(cs))
             {
-                using (var sw = new System.IO.StreamWriter(cs))
-                {
-                    sw.Write(texto);
-                }
+                sw.Write(texto);
             }
             return Convert.ToBase64String(ms.ToArray());
         }
@@ -140,12 +134,10 @@ namespace Onix.Framework.Security
             var textoBytes = Convert.FromBase64String(textoCriptografado);
 
             using var aes = Aes.Create();
-            aes.IV = textoBytes.Take(16).ToArray();
+            aes.IV = [.. textoBytes.Take(16)];
 
-            using (var pbkdf2 = new Rfc2898DeriveBytes(chaveMestra, aes.IV, 10000, HashAlgorithmName.SHA256))
-            {
-                aes.Key = pbkdf2.GetBytes(32); // 256 bits
-            }
+            using var pbkdf2 = new Rfc2898DeriveBytes(chaveMestra, aes.IV, 10000, HashAlgorithmName.SHA256);
+            aes.Key = pbkdf2.GetBytes(32); // 256 bits
 
             var decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
 
