@@ -2,5 +2,6 @@
   <Project Path="Onix.Framework.Domain/Onix.Framework.Domain.csproj" Id="749635da-bf20-4b22-8744-e5417b6d63f2" />
   <Project Path="Onix.Framework.Infra.Data.EFCore/Onix.Framework.Infra.Data.EFCore.csproj" Id="ba4d9160-af58-4d46-b975-427fa0d1a43e" />
   <Project Path="Onix.Framework.Infra.Data/Onix.Framework.Infra.Data.csproj" Id="280619d9-989d-4a51-a7e0-843e97aabbc9" />
+  <Project Path="Onix.Framework.Notifications/Onix.Framework.Notifications.csproj" Id="920fe0ec-ab7d-41af-82c8-bb07deb5de70" />
   <Project Path="Onix.Framework/Onix.Framework.csproj" Id="ddaffb02-b721-4191-a6a7-39386a63ec13" />
 </Solution>
