@@ -120,7 +120,7 @@ namespace Onix.Framework.Infra.Data.EFCore
             where TEntity : class
         {
             var query = Query(predicate, trackChanges, include);
-            return query.ToList();
+            return [.. query];
         }
 
         protected virtual IEnumerable<TEntity> Get<TEntity>(IQueryable<TEntity> query, bool trackChanges = false, params string[] include)
@@ -128,7 +128,7 @@ namespace Onix.Framework.Infra.Data.EFCore
         {
             query = trackChanges ? query : query.AsNoTracking();
             query = Include(query, include);
-            return query.ToList();
+            return [.. query];
         }
 
         protected virtual async Task<IEnumerable<TEntity>> GetAsync<TEntity>(Expression<Func<TEntity, bool>> predicate = null, bool trackChanges = false, params string[] include)
@@ -174,7 +174,7 @@ namespace Onix.Framework.Infra.Data.EFCore
         protected virtual IQueryable<TEntity> Include<TEntity>(IQueryable<TEntity> query, params string[] include)
             where TEntity : class
         {
-            if ((include?.Any()).GetValueOrDefault())
+            if (include?.Length > 0)
             {
                 foreach (var includeItem in include)
                 {
