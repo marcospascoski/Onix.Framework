@@ -23,6 +23,9 @@ namespace Onix.Framework.Infra.Data.EFCore
 
         protected virtual string DefaultDecimalType => "decimal(18, 2)";
 
-        protected virtual string DefaultBoolType => "bit";
+        protected virtual string DefaultBoolType =>
+            Database.ProviderName?.Contains("Npgsql", System.StringComparison.OrdinalIgnoreCase) == true
+                ? "boolean"
+                : "bit";
     }
 }
